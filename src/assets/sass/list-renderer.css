@@ -1,0 +1,143 @@
+.element-render, VideoRender {
+  display: block;
+  transition: .5s; }
+
+.element, .video_comp, .channel_comp {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: row;
+  position: relative; }
+
+.element__title, .video_comp__title, .channel_comp__title {
+  color: #111111;
+  display: block;
+  max-height: 4.8rem;
+  overflow: hidden;
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 1.4em; }
+
+.element__separator, .details__separator {
+  display: inline-block;
+  color: rgba(17, 17, 17, 0.6);
+  margin: 0 4px; }
+
+.element__details, .video_comp__details, .channel_comp__details {
+  color: rgba(17, 17, 17, 0.6);
+  max-width: 100%;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  line-height: 1em;
+  max-height: 3.6rem;
+  overflow: hidden;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: none;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.element__description, .video_comp__description, .channel_comp__description {
+  color: rgba(17, 17, 17, 0.6);
+  padding-top: 5px;
+  display: block;
+  line-height: 1.8rem;
+  max-height: 3.6rem;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 1.3em;
+  text-transform: none; }
+
+.element__overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(17, 17, 17, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 108px; }
+
+.element__avatar, .channel_comp__avatar {
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden;
+  height: 136px;
+  width: 136px;
+  margin: auto; }
+
+.element__playAll {
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(17, 17, 17, 0.8);
+  text-align: center;
+  transition: opacity 0.3s;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: .007px;
+  text-transform: uppercase; }
+
+.element__text, .video_comp__text {
+  max-width: 600px;
+  min-width: 0;
+  text-decoration: none;
+  color: rgba(17, 17, 17, 0.6);
+  flex: 1;
+  display: flex;
+  flex-direction: column; }
+
+.element__thumbnail, .video_comp__thumbnail, .channel_comp__thumbnail {
+  flex: none;
+  width: 246px;
+  height: 138px;
+  margin-right: 16px;
+  position: relative; }
+
+.element__time, .video_comp__time {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 4px;
+  color: white;
+  background-color: #111111;
+  opacity: .8;
+  padding: 2px 4px;
+  border-radius: 2px;
+  letter-spacing: .5px;
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 1.2em;
+  flex-direction: row;
+  align-items: center;
+  display: inline-flex; }
+
+.element__live-now, .video_comp__live-now {
+  border-radius: 2px;
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 1.2em;
+  margin-top: 0.5em;
+  background: white;
+  text-transform: uppercase;
+  color: #e62117;
+  border: 1px solid #e62117; }

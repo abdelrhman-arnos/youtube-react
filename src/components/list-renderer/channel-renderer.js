@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 export default class ChannelRenderer extends Component {
     render() {
         return (
             <div className="channel_comp">
                 <div className="channel_comp__thumbnail">
-                    <a href="#">
+                    <Link to="/channel/123">
                         <div className="channel_comp__avatar">
                             <img
-                                src="https://i.ytimg.com/vi/mcWZjUI-Ndg/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLD7WLoj1omGjUT2G-ha_SpE3Ngpkg"
+                                src="https://yt3.ggpht.com/a-/AAuE7mAA6XbiXyWcoPrrC2orJNcDeSX6EaILdrWoaw=s176-c-k-c0x00ffffff-no-rj-mo"
                                 alt=""/>
                         </div>
-                    </a>
+                    </Link>
                 </div>
                 <div className="channel_comp__text">
-                    <a href="#">
+                    <Link to="/channel/123">
                         <div className="channel_comp__header">
                             <div className="channel_comp__title">Channel title</div>
                             <div className="channel_comp__details --desktop">
@@ -30,7 +31,7 @@ export default class ChannelRenderer extends Component {
                                 adipisicing elit. Architecto delectus sapiente vel.
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
         )

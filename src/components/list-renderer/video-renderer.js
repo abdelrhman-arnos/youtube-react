@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 export default class VideoRenderer extends Component {
     render() {
         return (
             <div className="video_comp">
                 <div className="video_comp__thumbnail">
-                    <a href="#">
+                    <Link to="/video">
                         <img src="https://i.ytimg.com/vi/mcWZjUI-Ndg/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLD7WLoj1omGjUT2G-ha_SpE3Ngpkg" alt=""/>
                         <div className="video_comp__time">
                             17:00
                         </div>
-                    </a>
+                    </Link>
                 </div>
                 <div className="video_comp__text">
                     <div className="video_comp__header">

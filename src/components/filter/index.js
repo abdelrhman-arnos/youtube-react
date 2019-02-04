@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-
 import FilterContainer from './filter-container';
-
 import filterIcon from '../../assets/img/filter.svg';
-
-import '../../assets/sass/filter.css'
 
 export default class Filter extends Component {
     constructor(props) {

@@ -1,0 +1,88 @@
+@import "variables"
+@import "mixins"
+
+.filter__button
+  display: flex
+  align-items: center
+  cursor: pointer
+
+.filter__bTitle
+  margin-left: 8px
+  text-transform: uppercase
+  display: inline-block
+  font-size: em(14)
+  font-weight: 500
+
+.filter__icon
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  position: relative
+  vertical-align: middle
+  stroke: none
+  width: 24px
+  height: 24px
+  filter: invert(90%) !important
+
+.filter__container
+  margin-bottom: 32px
+  flex-direction: row
+  display: flex
+
+.filter
+  flex: 1
+  display: flex
+  flex-direction: column
+  padding: 0 32px 0 0
+
+.filter__title
+  color: $primary-dark-color
+  border-bottom: 1px solid $primary-gray-color
+  margin: 5px 0
+  padding: 15px 0
+  font-size: em(13)
+  font-weight: 500
+  letter-spacing: .007px
+  text-transform: uppercase
+
+.filter__option
+  padding: 15px 0 0 0
+  display: flex
+  flex-direction: row
+  text-decoration: none
+
+.--disabled
+  position: relative
+  opacity: .5
+  cursor: default !important
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+
+.filter__name
+  cursor: pointer
+  text-transform: capitalize
+  font-size: em(14)
+  color: $secondary-gray-color
+  &.--active
+    color: $primary-dark-color
+    font-weight: 500
+
+.filter__remove
+  align-items: center
+  justify-content: center
+  position: relative
+  vertical-align: middle
+  stroke: none
+  width: 24px
+  cursor: pointer
+  color: $primary-dark-color
+  display: none
+  padding-left: 10px
+  font-size: em(12)
+  &.--show
+    display: block

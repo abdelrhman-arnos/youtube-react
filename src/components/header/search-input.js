@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import searchIcon from '../../assets/img/search.png';
 
-export default class Search extends Component{
+export default class SearchInput extends Component{
     render(){
         return(
             <form method="post" className="search">

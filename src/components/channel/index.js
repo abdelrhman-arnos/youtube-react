@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoRenderer from '../list-renderer/video-renderer';
 
 function Channel() {
     return (
@@ -35,47 +36,7 @@ function Channel() {
                         Subscribe 14M
                     </div>
                 </div>
-                <div className="video_comp">
-                    <div className="video_comp__thumbnail">
-                        <a href="#">
-                            <img
-                                src='https://i.ytimg.com/vi/mcWZjUI-Ndg/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLD7WLoj1omGjUT2G-ha_SpE3Ngpkg'
-                                alt=""/>
-                            <div className="video_comp__time">40:02</div>
-                        </a>
-                    </div>
-                    <div className="video_comp__text">
-                        <div className="video_comp__header">
-                            <a href="#">
-                                <div className="video_comp__title">Video title</div>
-                            </a>
-                            <div className="video_comp__details">
-                                <div className="video_comp__channel-name">
-                                    <a href="#">Channel title</a>
-                                    <div className="details__separator --desktop">•</div>
-                                </div>
-                                <div className="video_comp__counts mt-3 --mobile">
-                                    <span>
-                                        1243 watching
-                                    </span>
-                                    <span>12 views</span>
-                                </div>
-                                <div className="video_comp__counts --desktop">
-                                    <span>
-                                        150 watching
-                                    </span>
-                                    <span>103 views</span>
-                                    <div className="details__separator">•</div>
-                                </div>
-                                <div className="video_comp__date --desktop">10:23</div>
-                            </div>
-                            <div className="video_comp__description --desktop">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Delectus dolorem quisquam quod.
-                            </div>
-                            <div className="video_comp__live-now">Live Now</div>
-                        </div>
-                    </div>
-                </div>
+                <VideoRenderer />
             </div>
         </div>
     )

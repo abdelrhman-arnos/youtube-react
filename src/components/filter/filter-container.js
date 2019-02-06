@@ -1,13 +1,27 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
-export default class FilterContainer extends Component{
-    render(){
-        return(
+export default class FilterContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: '',
+            type: '',
+            sort: ''
+        }
+    }
+
+    changeVal(date){
+        this.props.actions.setDateFilter(date);
+    }
+
+    render() {
+        return (
             <div className="filter__container">
                 <div id="filter__uploadDate" className="filter">
                     <div className="filter__title">Upload Date</div>
                     <div className="filter__option">
-                        <span data-value="hour" className="filter__name">Last hour</span>
+                        <span onClick={()=>this.changeVal('hour')}
+                              data-value="hour" className="filter__name">Last hour</span>
                         <span className="filter__remove">✖</span>
                     </div>
                     <div className="filter__option">

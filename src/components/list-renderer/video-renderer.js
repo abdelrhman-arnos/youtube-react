@@ -6,7 +6,7 @@ export default class VideoRenderer extends Component {
         return (
             <div className="video_comp">
                 <div className="video_comp__thumbnail">
-                    <Link to="/video">
+                    <Link to="/video/123">
                         <img src="https://i.ytimg.com/vi/mcWZjUI-Ndg/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLD7WLoj1omGjUT2G-ha_SpE3Ngpkg" alt=""/>
                         <div className="video_comp__time">
                             17:00
@@ -15,12 +15,12 @@ export default class VideoRenderer extends Component {
                 </div>
                 <div className="video_comp__text">
                     <div className="video_comp__header">
-                        <a href="#">
+                        <Link to="/video/123">
                             <div className="video_comp__title">Video title</div>
-                        </a>
+                        </Link>
                         <div className="video_comp__details">
                             <div className="video_comp__channel-name">
-                                <a href="#">Channel title</a>
+                                <Link to="/channel/123">Channel title</Link>
                                 <div className="details__separator --desktop">•</div>
                             </div>
                             <div className="video_comp__counts --desktop">

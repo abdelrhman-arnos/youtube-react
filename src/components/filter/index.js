@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-import FilterContainer from './filter-container';
+import FilterContainerSearch from '../../containers/Search';
+import {Link} from "react-router-dom";
 import filterIcon from '../../assets/img/filter.svg';
 
 export default class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showFilter: false
+            showFilter: false,
+            showTypeDropdown: false,
+            showTimeDropdown: false
         }
     }
+
     render() {
         return (
             <div>
@@ -17,30 +21,35 @@ export default class Filter extends Component {
                         <div className="result_count">
                             About 12,200,000 results
                         </div>
-                        <div className="filter__button" onClick={()=>this.setState({showFilter:!this.state.showFilter})}>
+                        <div className="filter__button"
+                             onClick={() => this.setState({showFilter: !this.state.showFilter})}>
                             <img src={filterIcon} className="filter__icon" alt="Filter icon"/>
                             <div className="filter__bTitle">Filter</div>
                         </div>
                     </div>
-                    {this.state.showFilter ? <FilterContainer /> : null}
+                    {this.state.showFilter ? <FilterContainerSearch /> : null}
                 </div>
                 <div className="--mobile">
-                    <div className="dropdown">
+                    <div className="dropdown"
+                         onClick={() => this.setState({showTypeDropdown: !this.state.showTypeDropdown})}>
                         All
-                        <div className="dropdown-menu">
-                            <a href="#" className="dropdown-item">All</a>
-                            <a href="#" className="dropdown-item">Channels</a>
-                            <a href="#" className="dropdown-item">Playlists</a>
-                        </div>
+                        {this.state.showTypeDropdown ?
+                            <div className="dropdown-menu">
+                                <Link to="/search" className="dropdown-item">All</Link>
+                                <Link to="/search" className="dropdown-item">Channels</Link>
+                                <Link to="/search" className="dropdown-item">Playlists</Link>
+                            </div> : null}
                     </div>
-                    <div className="dropdown">
+                    <div className="dropdown"
+                         onClick={() => this.setState({showTimeDropdown: !this.state.showTimeDropdown})}>
                         Anytime
+                        {this.state.showTimeDropdown ?
                         <div className="dropdown-menu">
-                            <a href="#" className="dropdown-item">Anytime</a>
-                            <a href="#" className="dropdown-item">Today</a>
-                            <a href="#" className="dropdown-item">This Week</a>
-                            <a href="#" className="dropdown-item">This Month</a>
-                        </div>
+                            <Link to="/search" className="dropdown-item">Anytime</Link>
+                            <Link to="/search" className="dropdown-item">Today</Link>
+                            <Link to="/search" className="dropdown-item">This Week</Link>
+                            <Link to="/search" className="dropdown-item">This Month</Link>
+                        </div> : null}
                     </div>
                 </div>
                 <div className="separator"/>

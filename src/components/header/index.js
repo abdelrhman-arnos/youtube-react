@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-
+import {SearchInputMap} from '../../containers/Search';
 import Logo from './logo';
-import SearchInput from './search-input';
 
 export default class Header extends Component {
     render() {
         return (
             <nav>
                 <Logo />
-                <SearchInput />
+                <SearchInputMap />
             </nav>
         );
     }

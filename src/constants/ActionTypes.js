@@ -1,3 +1,4 @@
+export const SET_QUERY_SEARCH = 'SET_QUERY_SEARCH';
 export const SET_DATE_FILTER = 'SET_DATE_FILTER';
 export const SET_TYPE_FILTER = 'SET_TYPE_FILTER';
 export const SET_SORT_FILTER = 'SET_SORT_FILTER';

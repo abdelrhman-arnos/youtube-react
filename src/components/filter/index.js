@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FilterContainerSearch from '../../containers/Search';
+import {FilterSearchMap} from '../../containers/Search';
 import {Link} from "react-router-dom";
 import filterIcon from '../../assets/img/filter.svg';
 
@@ -27,7 +27,7 @@ export default class Filter extends Component {
                             <div className="filter__bTitle">Filter</div>
                         </div>
                     </div>
-                    {this.state.showFilter ? <FilterContainerSearch /> : null}
+                    {this.state.showFilter ? <FilterSearchMap /> : null}
                 </div>
                 <div className="--mobile">
                     <div className="dropdown"

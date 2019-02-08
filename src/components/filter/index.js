@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {FilterSearchMap} from '../../containers/Search';
+import {FilterCounerMap} from '../../containers/SearchResults';
 import {Link} from "react-router-dom";
 import filterIcon from '../../assets/img/filter.svg';
 
@@ -9,25 +10,37 @@ export default class Filter extends Component {
         this.state = {
             showFilter: false,
             showTypeDropdown: false,
-            showTimeDropdown: false
+            showTimeDropdown: false,
+            dates: [
+                'Last hour',
+                'today',
+                'this week',
+                'this month',
+                'this year',
+            ],
+            types: [
+                'video',
+                'channel',
+                'playlist',
+            ],
         }
     }
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <div className="--desktop">
                     <div className="d-flex justify-content-between">
-                        <div className="result_count">
-                            About 12,200,000 results
-                        </div>
+                        <FilterCounerMap/>
                         <div className="filter__button"
                              onClick={() => this.setState({showFilter: !this.state.showFilter})}>
                             <img src={filterIcon} className="filter__icon" alt="Filter icon"/>
                             <div className="filter__bTitle">Filter</div>
                         </div>
                     </div>
-                    {this.state.showFilter ? <FilterSearchMap /> : null}
+                    {this.state.showFilter ?
+                        <FilterSearchMap dates={this.state.dates} types={this.state.types}/> : null}
                 </div>
                 <div className="--mobile">
                     <div className="dropdown"
@@ -35,29 +48,23 @@ export default class Filter extends Component {
                         All
                         {this.state.showTypeDropdown ?
                             <div className="dropdown-menu">
-                                <Link to="/search" className="dropdown-item">All</Link>
-                                <Link to="/search" className="dropdown-item">Channels</Link>
-                                <Link to="/search" className="dropdown-item">Playlists</Link>
+                                {this.state.types.map(type => {
+                                    return <Link to="/search" className="dropdown-item">{type}</Link>
+                                })}
                             </div> : null}
                     </div>
                     <div className="dropdown"
                          onClick={() => this.setState({showTimeDropdown: !this.state.showTimeDropdown})}>
                         Anytime
                         {this.state.showTimeDropdown ?
-                        <div className="dropdown-menu">
-                            <Link to="/search" className="dropdown-item">Anytime</Link>
-                            <Link to="/search" className="dropdown-item">Today</Link>
-                            <Link to="/search" className="dropdown-item">This Week</Link>
-                            <Link to="/search" className="dropdown-item">This Month</Link>
-                        </div> : null}
+                            <div className="dropdown-menu">
+                                {this.state.dates.map(date => {
+                                    return <Link to="/search" className="dropdown-item">{date}</Link>
+                                })}
+                            </div> : null}
                     </div>
                 </div>
                 <div className="separator"/>
-                <div>
-                    <video-render/>
-                    <channel-render/>
-                    <playlist-render/>
-                </div>
             </div>
         )
     }

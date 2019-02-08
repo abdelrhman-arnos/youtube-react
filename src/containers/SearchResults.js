@@ -2,8 +2,8 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import * as SearchActions from '../actions/search';
-import FilterContainer from '../components/filter/filter-container';
-import SearchInput from '../components/header/search-input';
+import ListRenderer from '../components/list-renderer';
+import FilterCounter from '../components/filter/counter';
 
 const mapStateToProps = state => {
     return state
@@ -13,12 +13,12 @@ const mapActionsToProps = dispatch => ({
     actions: bindActionCreators(SearchActions, dispatch)
 });
 
-export const FilterSearchMap = connect(
+export const SearchRendererMap = connect(
     mapStateToProps,
     mapActionsToProps
-)(withRouter(FilterContainer));
+)(withRouter(ListRenderer));
 
-export const SearchInputMap = connect(
+export const FilterCounerMap = connect(
     mapStateToProps,
     mapActionsToProps
-)(withRouter(SearchInput));
+)(withRouter(FilterCounter));

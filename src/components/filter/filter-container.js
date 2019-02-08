@@ -4,18 +4,6 @@ export default class FilterContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dates: [
-                'Last hour',
-                'today',
-                'this week',
-                'this month',
-                'this year',
-            ],
-            types: [
-                'video',
-                'channel',
-                'playlist',
-            ],
             sort: [
                 'relevance',
                 'upload date',
@@ -27,6 +15,7 @@ export default class FilterContainer extends Component {
 
     setDate(date) {
         this.props.actions.setDateFilter(date);
+        // this.props.history.push(`/search${this.props.history.location.search}&date=${date}`);
     }
 
     setType(type) {
@@ -42,7 +31,7 @@ export default class FilterContainer extends Component {
             <div className="filter__container">
                 <div id="filter__uploadDate" className="filter">
                     <div className="filter__title">Upload Date</div>
-                    {this.state.dates.map(dateName => {
+                    {this.props.dates.map(dateName => {
                         return <div className="filter__option" key={dateName}>
                             <span onClick={() => this.setDate(dateName)} className="filter__name">{dateName}</span>
                             <span className="filter__remove">✖</span>
@@ -51,7 +40,7 @@ export default class FilterContainer extends Component {
                 </div>
                 <div id="filter__type" className="filter">
                     <div className="filter__title">Type</div>
-                    {this.state.types.map(typeName => {
+                    {this.props.types.map(typeName => {
                         return <div className="filter__option" key={typeName}>
                             <span onClick={() => this.setType(typeName)} className="filter__name">{typeName}</span>
                             <span className="filter__remove">✖</span>

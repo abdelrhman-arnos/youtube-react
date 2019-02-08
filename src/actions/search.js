@@ -1,5 +1,10 @@
 import * as types from '../constants/ActionTypes';
 
+export const setQuerySearch = query => ({
+    type: types.SET_QUERY_SEARCH,
+    payload: query
+});
+
 export const setDateFilter = date => ({
     type: types.SET_DATE_FILTER,
     payload: date
@@ -14,10 +19,3 @@ export const setSortFilter = sort => ({
     type: types.SET_SORT_FILTER,
     payload: sort
 });
-
-export const setQuerySearch = query => ({
-    type: types.SET_QUERY_SEARCH,
-    payload: query
-});
-
-

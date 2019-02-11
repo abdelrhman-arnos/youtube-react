@@ -1,38 +1,41 @@
 import React, {Component} from 'react';
-import {FilterSearchMap} from '../../containers/Search';
-import {FilterCounerMap} from '../../containers/SearchResults';
+import {withRouter} from 'react-router-dom';
+import {FilterSearchMap} from '../../containers/search';
+import {FilterCounterMap} from '../../containers/search-results';
 import {Link} from "react-router-dom";
 import filterIcon from '../../assets/img/filter.svg';
+import qs from "query-string";
 
-export default class Filter extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showFilter: false,
-            showTypeDropdown: false,
-            showTimeDropdown: false,
-            dates: [
-                'Last hour',
-                'today',
-                'this week',
-                'this month',
-                'this year',
-            ],
-            types: [
-                'video',
-                'channel',
-                'playlist',
-            ],
-        }
+class Filter extends Component {
+    state = {
+        showFilter: false,
+        showTypeDropdown: false,
+        showTimeDropdown: false,
+        dates: [
+            'Last hour',
+            'today',
+            'this week',
+            'this month',
+            'this year',
+        ],
+        types: [
+            'video',
+            'channel',
+            'playlist',
+        ],
+        parsed: qs.parse(this.props.history.location.search)
+    };
+
+    componentWillReceiveProps(props) {
+        this.setState({parsed: qs.parse(props.history.location.search)})
     }
 
     render() {
-        console.log(this.props);
         return (
             <div>
                 <div className="--desktop">
                     <div className="d-flex justify-content-between">
-                        <FilterCounerMap/>
+                        <FilterCounterMap/>
                         <div className="filter__button"
                              onClick={() => this.setState({showFilter: !this.state.showFilter})}>
                             <img src={filterIcon} className="filter__icon" alt="Filter icon"/>
@@ -40,7 +43,7 @@ export default class Filter extends Component {
                         </div>
                     </div>
                     {this.state.showFilter ?
-                        <FilterSearchMap dates={this.state.dates} types={this.state.types}/> : null}
+                        <FilterSearchMap parsed={this.state.parsed} dates={this.state.dates} types={this.state.types}/> : null}
                 </div>
                 <div className="--mobile">
                     <div className="dropdown"
@@ -69,3 +72,5 @@ export default class Filter extends Component {
         )
     }
 }
+
+export default withRouter(Filter);

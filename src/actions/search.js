@@ -15,7 +15,7 @@ export const setTypeFilter = type => ({
     payload: type
 });
 
-export const setSortFilter = sort => ({
-    type: types.SET_SORT_FILTER,
-    payload: sort
+export const setOrderFilter = order => ({
+    type: types.SET_ORDER_FILTER,
+    payload: order
 });

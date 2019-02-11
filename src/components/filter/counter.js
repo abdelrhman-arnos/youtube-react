@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
+import {numFormat} from "../../helper";
 
 export default class FilterCounter extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-
     render() {
         return (
             <div className="result_count">
-                About 12,200,000 results
+                About {numFormat(this.props.searchResults.pageInfo.totalResults)} results
             </div>
         )
     }
 }
+

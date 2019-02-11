@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
+import qs from 'query-string';
 import searchIcon from '../../assets/img/search.png';
+import store from "../../store";
+import {searchCall} from "../../actions/shared-action";
 
 export default class SearchInput extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            q: ''
-        }
-    }
+    state = {q: this.props.search.q};
 
-    componentWillReceiveProps(props){
+    componentWillReceiveProps(props) {
         this.setState({q: props.search.q})
     }
 
     onSubmit(e) {
+        if (this.state.q === '')
+            return false;
         e.preventDefault();
-        this.props.actions.setQuerySearch(this.state.q);
+        let parsed = qs.parse(this.props.history.location.search);
+        parsed.query = this.state.q;
+        store.dispatch(searchCall({query:this.state.q}));
+        this.props.history.push(`/search?${qs.stringify(parsed)}`);
     }
 
     render() {
@@ -29,7 +32,7 @@ export default class SearchInput extends Component {
                 </div>
 
                 <div className="search__container --desktop">
-                    <input type="text" onChange={e => this.setState({q: e.target.value})}
+                    <input type="text" required={true} onChange={e => this.setState({q: e.target.value})}
                            autoComplete="off" value={this.state.q}
                            className="search__input"
                            id="search__input--desktop"

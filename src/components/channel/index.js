@@ -1,41 +1,42 @@
 import React, {Component} from 'react';
-import VideoRenderer from '../list-renderer/video-renderer';
+import store from "../../store";
+import {viewsFormat} from "../../helper";
 
 export default class Channel extends Component {
     render() {
+        const self = this;
+        let data = store.getState().searchResults.items.find(function (element) {
+            return element.channel.id === self.props.match.params.id;
+        });
         return (
             <div>
                 <div className="channel">
                     <div className="channel_banner">
-                        <img
-                            src="https://blog.placeit.net/wp-content/uploads/2018/05/YOUTUBE-BANNER-TEMPLATE-1024x576.png"
-                            alt=""/>
+                        <img src={data.channel.brandingSettings.image.bannerImageUrl} alt={data.channel.snippet.title}/>
                     </div>
                     <div className="channel__info mt-2">
                         <div className="channel_comp__thumbnail channel__thumbnail--sm --channel_av--sm --mobile">
                             <div className="channel_comp__avatar channel__avatar--sm">
-                                <img
-                                    src="https://yt3.ggpht.com/a-/AAuE7mDgty-77F-80tGXnFut6OGsHxOfGxJV4Lfmnw=s288-mo-c-c0xffffffff-rj-k-no"
-                                    alt=""/>
+                                <img src={data.channel.snippet.thumbnails.medium.url} alt={data.channel.snippet.title}/>
                             </div>
                         </div>
                         <div className="channel_comp__thumbnail channel__thumbnail--md --desktop">
                             <div className="channel_comp__avatar channel__avatar--md">
-                                <img
-                                    src="https://yt3.ggpht.com/a-/AAuE7mDgty-77F-80tGXnFut6OGsHxOfGxJV4Lfmnw=s288-mo-c-c0xffffffff-rj-k-no"
-                                    alt=""/>
+                                <img src={data.channel.snippet.thumbnails.medium.url} alt={data.channel.snippet.title}/>
                             </div>
                         </div>
                         <div className="channel__header header--scope">
-                            <div className="channel__title">Channel title</div>
-                            <div className="channel_count text --mobile --dark_gray">
+                            <div className="channel__title">{data.channel.snippet.title}</div>
+                            <div className="channel_count text --mobile --dark_gray"
+                                 title={data.channel.statistics.subscriberCount}>
                                 <div className="button button__subscribe --subscribe__sm">►</div>
                                 <span className="text --red mr-2">Subscribe</span>
-                                13M
+                                {viewsFormat(data.channel.statistics.subscriberCount)}
                             </div>
                         </div>
-                        <div className="button button__subscribe --desktop">
-                            Subscribe 14M
+                        <div className="button button__subscribe --desktop"
+                             title={data.channel.statistics.subscriberCount}>
+                            Subscribe {viewsFormat(data.channel.statistics.subscriberCount)}
                         </div>
                     </div>
                 </div>

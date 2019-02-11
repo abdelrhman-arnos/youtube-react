@@ -4,12 +4,11 @@ import Header from './components/header';
 import Search from './components/search';
 import Channel from './components/channel';
 import Video from './components/video';
-import NotFound from './components/404';
 import store from './store';
 import {searchCall} from "./actions/shared-action";
 import './assets/sass/app.css';
 
-// store.dispatch(searchCall());
+store.dispatch(searchCall({scroll: true}));
 
 class App extends Component {
     render() {
@@ -22,7 +21,6 @@ class App extends Component {
                         <Route path="/search" component={Search}/>
                         <Route path="/channel/:id" component={Channel}/>
                         <Route path="/video/:id" component={Video}/>
-                        {/*<Route component={NotFound}/>*/}
                     </div>
                 </div>
             </Switch>

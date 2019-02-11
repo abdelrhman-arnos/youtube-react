@@ -5,7 +5,7 @@ import store from "../../store";
 import {searchCall} from "../../actions/shared-action";
 
 export default class SearchInput extends Component {
-    state = {q: this.props.search.q};
+    state = {q: store.getState().search.q};
 
     componentWillReceiveProps(props) {
         this.setState({q: props.search.q})

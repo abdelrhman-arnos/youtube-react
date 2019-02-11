@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 export default class ChannelRenderer extends Component {
     render() {
-        console.log(this.props.data);
         return (
             <div className="channel_comp">
                 <div className="channel_comp__thumbnail">

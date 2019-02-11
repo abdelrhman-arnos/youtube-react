@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SearchInputMap} from '../../containers/Search';
+import {SearchInputMap} from '../../containers/search';
 import Logo from './logo';
 
 export default class Header extends Component {

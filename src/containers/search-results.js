@@ -18,7 +18,7 @@ export const SearchRendererMap = connect(
     mapActionsToProps
 )(withRouter(ListRenderer));
 
-export const FilterCounerMap = connect(
+export const FilterCounterMap = connect(
     mapStateToProps,
     mapActionsToProps
 )(withRouter(FilterCounter));
